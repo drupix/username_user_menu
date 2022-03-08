@@ -1,0 +1,27 @@
+username_user_menu.user_login:
+  title: 'Log in'
+  route_name: user.login
+  parent: account
+  menu_name: account
+  weight: -50
+
+username_user_menu.my_account:
+  title: 'User name'
+  route_name: user.page
+  parent: account
+  menu_name: account
+  description: 'Logged in user menu item container'
+  weight: -49
+
+username_user_menu.config:
+  title: 'Username user menu'
+#  parent: username_user_menu.admin
+  parent: system.admin_config
+  description: 'Username user menu configuration'
+  route_name: username_user_menu.config
+username_user_menu.settings:
+  title: 'Settings'
+  parent: username_user_menu.config
+  description: 'Username user menu settings'
+  route_name: username_user_menu.settings
+  weight: 0

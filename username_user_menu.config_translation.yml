@@ -1,0 +1,5 @@
+# username_user_menu.settings:
+#   title: 'Username user menu settings'
+#   base_route_name: username_user_menu.settings
+#   names:
+#     - username_user_menu.settings

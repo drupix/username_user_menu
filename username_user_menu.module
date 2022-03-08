@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Description of what this module (or file) is doing.
+ */
+
+ use \Drupal\user\Entity\User;
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function username_user_menu_menu_links_discovered_alter(&$links) {
+  // Set menu links username_user_menu.my_account to open as dropdown.
+  $links['username_user_menu.my_account']['route_name'] = '<none>';
+}
+
+/**
+ * Implements hook_preprocess_menu__account().
+ */
+function username_user_menu_preprocess_menu__account(&$variables) {
+  $is_anonymous = \Drupal::currentUser()->isAnonymous();
+  if ($is_anonymous) {
+    unset($variables['items']['username_user_menu.my_account']);
+  }
+  else {
+    unset($variables['items']['username_user_menu.user_login']);
+    foreach ($variables['items'] as $item => $link) {
+      if ($item == 'username_user_menu.my_account') {
+        $config = \Drupal::config('username_user_menu.settings');
+
+        $user = User::load(\Drupal::currentUser()->id());
+        $names = [];
+
+        $user_name = \Drupal::currentUser()->getAccountName();
+        // Drupal::logger('debug')->notice('user_name = ' . $user_name);
+
+        if($user->hasField('field_firstname')) {
+          $firstname = $user->get('field_firstname')->value;
+          // Always abbreviate firstname, it is shurely too long to be displayed in the pills
+          $firstname = substr($firstname, 0, 1);
+          $names[] = $firstname;
+        }
+        if($user->hasField('field_lastname')) {
+          $lastname = $user->get('field_lastname')->value;
+          // Always abbreviate lastname, it is shurely too long to be displayed in the pills
+          $lastname = substr($lastname, 0, 1);
+          $names[] = $lastname;
+        }
+        $display_name = implode('', $names);
+
+        if($config->get('username.capitalize')) {
+          $user_name = strtoupper($user_name);
+          $display_name = strtoupper($display_name);
+        }
+        if($config->get('username.abbreviate')) {
+          $user_name = substr($user_name, 0, 1);
+        }
+
+        $variables['items'][$item]['title'] = $display_name ? $display_name : $user_name;
+      }
+    }
+  }
+}

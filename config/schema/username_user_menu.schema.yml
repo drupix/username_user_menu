@@ -1,0 +1,14 @@
+# username_user_menu.settings:
+#   type: config_object
+#   label: 'Username user menu settings'
+#   mapping:
+#     username:
+#       type: mapping
+#       label: 'User menu options'
+#       mapping:
+#         capitalize:
+#           type: number
+#           label: 'Capitalize user name'
+#         abbreviate:
+#           type: number
+#           label: 'Abbreviate user name'

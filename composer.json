@@ -1,0 +1,10 @@
+{
+  "name": "drupix/username_user_menu",
+  "type": "drupal-custom-module",
+  "description": "Add the user name at top of the user menu.",
+  "homepage": "https://github.com/drupix/username_user_menu",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/core": "^9.0"
+  }
+}
