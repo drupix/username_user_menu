@@ -5,19 +5,32 @@
 
 ## Features
 
-The additional features provided by this module are:
+This is a simple module that add a menu item **"User name"** to the user account menu. At runtime, the menu item is replaced with the real "username" of the logged in user.
 
-* a `prose` (`tw-prose`) wrapper class is added to the editor `body` that allows tailwindcss-typography to works correctly while editing a node in the admin section
-* **extra styles** provied by [TWBase Theme](https://github.com/drupix/twbase) are added to CKEditor for a better match with tailwindcss-typography and easily applying custom styles like:
-  * `p.lead`
-  * `code`
-  * custom colors (`text-primary`, `text-secondary`, `text-success`, `text-danger`, `text-warning`)
-  * `dropcap` for a Dropcap (big letter at the beginning of a sentence/word)
-  * `button` (i.e. display a link like a button), and colored buttons `button--primary`, `button--secondary`, `button--success`, `button--danger`, `button--warning`
-* an admin interface is provided to edit the showcase content
-* and last but not least: it allows you to define showcase options per content type 🥳
+If the user entity has the following extra fields, they will be used instead of the username:
 
-**To have extra styles working you must add the "Styles" button to your CKEditor configuration at `/admin/config/content/formats/manage/full_html`**
+* field_firstname : First name / Text (plain)
+* field_lastname : Last name / Text (plain)
+
+### Example
+
+**Default (without extra fields)**
+
+* username
+  * My account (logged in users only)
+  * Log out ("Log in" for anonymous users)
+
+**With extra fields**
+
+First name: John\
+Last name : Doe
+
+* John Doe
+  * My account (logged in users only)
+  * Log out ("Log in" for anonymous users)
+
+**Notes**: note that you have to manually edit the menu and rearrange items at http://www.example.com/admin/structure/menu/manage/account.
+
 
 ## Installation
 
