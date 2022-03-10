@@ -1,4 +1,4 @@
-name: User menu utilities
+name: Pack Presence - User menu utilities
 type: module
 description: 'Add the user name at top of the user menu'
 #core: 8.x
