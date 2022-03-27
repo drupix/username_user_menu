@@ -29,8 +29,7 @@ Last name : Doe
   * My account (logged in users only)
   * Log out ("Log in" for anonymous users)
 
-**Notes**: note that you have to manually edit the menu and rearrange items at http://www.example.com/admin/structure/menu/manage/account.
-
+**Notes**: note that you have to manually edit the menu and rearrange items at <http://www.example.com/admin/structure/menu/manage/account>.
 
 ## Installation
 
