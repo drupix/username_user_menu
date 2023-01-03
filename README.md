@@ -14,13 +14,13 @@ If the user entity has the following extra fields, they will be used instead of 
 
 ### Example
 
-**Default (without extra fields)**
+**Default (without extra fields) :**
 
 * username
   * My account (logged in users only)
   * Log out ("Log in" for anonymous users)
 
-**With extra fields**
+**With extra fields :**
 
 First name: John\
 Last name : Doe
